@@ -1,11 +1,22 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import Swal from "sweetalert2";
+import LoginComponent from "@/components/LoginComponent.vue";
+import TaskListComponent from "@/components/TaskListComponent.vue";
 
 const routes: Array<RouteRecordRaw> = [
+  { path: "/", redirect: "/tareas" },
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: "/login",
+    name: "login",
+    component: LoginComponent,
+    meta: {
+      public: true, // No requiere autentificación
+    },
+  },
+  {
+    path: "/tareas",
+    name: "tareas",
+    component: TaskListComponent,
   },
   {
     path: "/about",
@@ -21,6 +32,25 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const loggedIn = localStorage.getItem("user"); // Asumimos que el usuario está autentificado si hay un "user" en localStorage
+
+  if (!to.meta.public && !loggedIn) {
+    // Si la ruta no es pública y el usuario no está autentificado, redirige a la página de login
+    Swal.fire({
+      icon: "error",
+      title: "Tsk, tsk...",
+      text: "No me consta que estés autentificado, así que... tira pa'l login",
+      showConfirmButton: true,
+      timer: 7000,
+      timerProgressBar: true,
+    });
+    return next({ path: "/login" });
+  }
+
+  next();
 });
 
 export default router;
