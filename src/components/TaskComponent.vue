@@ -27,18 +27,18 @@
       <div style="white-space: nowrap">
         <div class="app-button" @click.stop="saveTask(task.id)">
           <span class="sr-only">Save task</span>
-          <PlusCircleIcon class="w-6 h-6" />
+          <ArchiveBoxArrowDownIcon class="w-6 h-6" />
         </div>
         <div v-if="task.is_completed" class="app-button">
           <span class="sr-only">Completed</span>
           <div @click.stop="toggleCompleted(task.id)">
-            <CheckCircleIcon class="w-6 h-6" />
+            <XCircleIcon class="w-6 h-6" />
           </div>
         </div>
         <div v-else class="app-button">
           <span class="sr-only">Not Completed</span>
           <div @click.stop="toggleCompleted(task.id)">
-            <XCircleIcon class="w-6 h-6" />
+            <CheckCircleIcon class="w-6 h-6" />
           </div>
         </div>
         <div class="app-button" @click.stop="deleteTask(task.id)">
@@ -88,7 +88,6 @@ import {
   XCircleIcon,
   TrashIcon,
   ArchiveBoxArrowDownIcon,
-  PlusCircleIcon,
   FolderIcon,
   FolderOpenIcon,
 } from "@heroicons/vue/24/solid";
@@ -109,7 +108,6 @@ import VueMultiselect from "vue-multiselect";
     XCircleIcon,
     TrashIcon,
     ArchiveBoxArrowDownIcon,
-    PlusCircleIcon,
     FolderIcon,
     FolderOpenIcon,
     VueMultiselect,
@@ -247,7 +245,7 @@ li:hover {
   @apply cursor-pointer;
 
   &:hover {
-    @apply bg-gray-400;
+    @apply bg-orange-300;
     color: var(--tw-ring-color);
   }
 }
