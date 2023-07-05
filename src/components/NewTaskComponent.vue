@@ -196,12 +196,12 @@ export default class NewTaskComponent extends Vue {
     };
 
     try {
-      console.log("newTask", newTask);
       this.toggleLoading();
       const response = await ApiService.saveTask(newTask);
       if (!response.status.error) {
         this.tasks.push(newTask);
         this.newTaskModalisOpen = false;
+        this.newTask.id = response.payload.task.id;
         this.$emit("saved", this.newTask);
         this.newTask = {
           id: 0,
