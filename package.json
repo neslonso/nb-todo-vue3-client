@@ -3,20 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-for-laravel": "vue-cli-service build --dest ../public"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^38.1.0",
+    "@ckeditor/ckeditor5-vue": "^5.1.0",
+    "@heroicons/vue": "^2.0.18",
+    "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
+    "sweetalert2": "^11.7.12",
     "vue": "^3.2.13",
-    "vue-class-component": "^8.0.0-0",
+    "vue-class-component": "^8.0.0-rc.1",
+    "vue-loading-overlay": "^6.0.3",
+    "vue-multiselect": "^3.0.0-beta.2",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
@@ -31,15 +40,18 @@
     "@vue/eslint-config-typescript": "^9.1.0",
     "@vue/test-utils": "^2.0.0-0",
     "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "autoprefixer": "^10.4.14",
     "babel-jest": "^27.0.6",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "jest": "^27.0.5",
+    "postcss": "^8.4.24",
     "prettier": "^2.4.1",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
+    "tailwindcss": "^3.3.2",
     "ts-jest": "^27.0.4",
     "typescript": "~4.5.5"
   }
