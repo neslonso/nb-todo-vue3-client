@@ -17,7 +17,6 @@
 }
 
 nav {
-  position: fixed;
   width: 100vw;
   padding: 30px;
   @apply p-4 mb-4 bg-white rounded shadow-lg;
@@ -35,10 +34,6 @@ nav {
       color: #42b983;
     }
   }
-}
-
-section.main {
-  padding: 100px;
 }
 
 .swal2-container ul {
