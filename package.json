@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-for-laravel": "vue-cli-service build --dest ../public"
+    "build-to-laravel": "vue-cli-service build --dest ../public/vue3-client"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^38.1.0",
