@@ -35,7 +35,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  /*
+  console.log("to", to);
+  console.log("from", from);
+  console.log("next", next);
+  */
   const loggedIn = localStorage.getItem("user"); // Asumimos que el usuario está autentificado si hay un "user" en localStorage
+
+  if (from.path == "/" && to.path != "/login" && !loggedIn) {
+    return next({ path: "/login" });
+  }
 
   if (!to.meta.public && !loggedIn) {
     // Si la ruta no es pública y el usuario no está autentificado, redirige a la página de login
