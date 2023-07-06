@@ -63,10 +63,27 @@ import Swal from "sweetalert2";
 export default class LoginComponent extends Vue {
   email = "";
   password = "";
+
+  loader: any;
+  is_loading = false;
+
+  toggleLoading() {
+    if (this.is_loading) {
+      this.loader.hide();
+      this.is_loading = false;
+      return;
+    }
+    this.loader = this.$loading.show({
+      loader: "dots",
+    });
+    this.is_loading = true;
+  }
+
   async login() {
     try {
+      this.toggleLoading();
       const logged = await ApiService.login(this.email, this.password);
-      console.log("logged", logged);
+      this.toggleLoading();
       if (logged) {
         this.$router.push({ name: "tareas" });
         localStorage.setItem("user", this.email); // Asumimos que el usuario está autentificado si hay un "user" en localStorage
