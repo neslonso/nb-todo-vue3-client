@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { Task } from "@/models/Task";
 
-const API_SERVER = "http://localhost";
+const API_SERVER = "http://localhost:8088";
 const API_ENDPOINT = "/api";
 
 class ApiResponse implements ApiResponse {
